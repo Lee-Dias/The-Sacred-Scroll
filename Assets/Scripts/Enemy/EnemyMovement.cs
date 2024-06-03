@@ -11,6 +11,11 @@ public class EnemyMovement : MonoBehaviour
     private float chaseDistance;
     [SerializeField]
     private float moveSpeed;
+    [SerializeField]
+    private float XScale = 1;
+        [SerializeField]
+    private float YScale = 1;
+
     private bool isChasing;
     private Animator anim;
 
@@ -26,11 +31,11 @@ public class EnemyMovement : MonoBehaviour
                 anim.SetBool("moving",false);
             }
             if(transform.position.x > (playerTransform.position.x+20)){
-                transform.localScale = new Vector3(1,1,1);
+                transform.localScale = new Vector3(XScale,YScale,1);
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
             }
             else if(transform.position.x < (playerTransform.position.x-20)){
-                transform.localScale = new Vector3(-1,1,1);
+                transform.localScale = new Vector3(-XScale,YScale,1);
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             }else{
                 anim.SetBool("moving",false);
