@@ -1,12 +1,10 @@
 # Auto-detect text files and normalize line endings to LF
 * text=auto
-
 # Force LF line endings for scripts
 *.cs text eol=lf
 *.js text eol=lf
 *.boo text eol=lf
 *.shader text eol=lf
-
 # Unity YAML configuration files should be treated as text
 *.meta text
 *.unity text
@@ -32,18 +30,15 @@
 *.json text
 *.uxml text
 *.uss text
-
 # Force CRLF line endings for batch scripts (Windows)
 *.bat text eol=crlf
 *.cmd text eol=crlf
-
 # Treat images as binary
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
 *.tga binary
-*.psd binary
 *.tiff binary
 *.bmp binary
 *.dds binary
@@ -51,7 +46,6 @@
 *.hdr binary
 *.iff binary
 *.pict binary
-
 # Treat 3D models as binary
 *.fbx binary
 *.obj binary
@@ -60,7 +54,6 @@
 *.3ds binary
 *.mb binary
 *.ma binary
-
 # Treat audio files as binary
 *.mp3 binary
 *.ogg binary
@@ -68,7 +61,6 @@
 *.aif binary
 *.aiff binary
 *.flac binary
-
 # Treat video files as binary
 *.mp4 binary
 *.mov binary
@@ -77,20 +69,17 @@
 *.mpg binary
 *.mpeg binary
 *.m4v binary
-
 # Treat font files as binary
 *.ttf binary
 *.otf binary
 *.fon binary
 *.fnt binary
-
 # Treat archive files as binary
 *.zip binary
 *.rar binary
 *.7z binary
 *.gz binary
 *.tar binary
-
 # Treat miscellaneous binary files
 *.dll binary
 *.exe binary
