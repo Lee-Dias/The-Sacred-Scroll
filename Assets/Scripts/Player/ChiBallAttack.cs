@@ -43,7 +43,7 @@ public class ChiBallAttack : MonoBehaviour
 
     private int FindChiBall(){
         for (int i = 0;i<ChiBalls.Length; i++){
-            if (ChiBalls[i].activeInHierarchy)
+            if (!ChiBalls[i].activeInHierarchy)
                 return i;
         }
         return 0;

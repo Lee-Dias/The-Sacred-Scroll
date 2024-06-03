@@ -29,6 +29,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     public void TakeDamage(float _damage)
     {
+        
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0){
@@ -38,16 +39,19 @@ public class Health : MonoBehaviour
         else
         {
             if (!dead){
+                
                 //Player
                 if(GetComponent<PlayerMovement>() !=null){
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
                 //Enemy
-
+                
                 foreach(Behaviour component in components){
+                    
+                    gameObject.SetActive(false);
                     component.enabled = false;
-                    Die();
-                    spriteRend.color = new Color(0,0,0, 0f);
+                    
+
                 }
                   
                 dead = true;
@@ -55,12 +59,6 @@ public class Health : MonoBehaviour
             
         }
         
-    }
-
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.E)){
-            TakeDamage(1);
-        }
     }
     public void AddHealth(float _value){
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth); 
@@ -70,7 +68,7 @@ public class Health : MonoBehaviour
         //ficar invulneravel contra enemies
         Physics2D.IgnoreLayerCollision(7,8,true);
         for (int i = 0; i < numberOfFlashes; i++) {
-            spriteRend.color = new Color(1,0,0, 0.5f);
+            spriteRend.color = new Color(1,1,1, 0.5f);
             yield return new WaitForSeconds(iFramesDuration/(numberOfFlashes*2));
             spriteRend.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration/(numberOfFlashes*2));
@@ -79,7 +77,7 @@ public class Health : MonoBehaviour
     }
 
     private IEnumerator Die(){
-        //ficar invulneravel contra enemies
+        
         Physics2D.IgnoreLayerCollision(7,8,true);
         for (int i = 0; i < 2; i++) {
             spriteRend.color = new Color(1,0,0, 0.5f);
