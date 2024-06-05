@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8214133490077809572}
   - component: {fileID: 7298941992639568683}
   - component: {fileID: 2431302547236376640}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: EnemyWolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -214,11 +214,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71d452527abb504d8e786361d8241ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 4
   iFramesDuration: 0
   numberOfFlashes: 0
   components:
   - {fileID: 8214133490077809572}
+  - {fileID: 7298941992639568683}
 --- !u!114 &8214133490077809572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,12 +234,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 2
   range: 1
-  colliderDistance: -20
+  colliderDistance: -10
   damage: 1
   boxCollider: {fileID: 4356411827671065475}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
 --- !u!114 &7298941992639568683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,8 +253,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  chaseDistance: 100
+  chaseDistance: 75
   moveSpeed: 20
+  XScale: 1
+  YScale: 1
 --- !u!50 &2431302547236376640
 Rigidbody2D:
   serializedVersion: 4

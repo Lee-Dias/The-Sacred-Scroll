@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5864596429457895128}
   - component: {fileID: 1270567681495221658}
   - component: {fileID: 3445047353465387063}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Dumplings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

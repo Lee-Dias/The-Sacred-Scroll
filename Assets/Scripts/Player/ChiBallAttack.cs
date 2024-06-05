@@ -11,31 +11,31 @@ public class ChiBallAttack : MonoBehaviour
     
     private Animator anim;
     private PlayerMovement playerMovement;
+
+    private Chi chi;
     private float cooldownTimer = Mathf.Infinity;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        chi = GetComponent<Chi>();
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.CanAttack()){
+        if (Input.GetKeyDown(KeyCode.K) && cooldownTimer > attackCooldown && playerMovement.CanAttack() && chi.currentChi >1){
+            playerMovement.changeSpeed(4f);
+            chi.LoseChi(2);
             anim.SetTrigger("attack");
             cooldownTimer = 0;
         }
 
         cooldownTimer += Time.deltaTime;
     }
-    private void playAnimation(){
-        anim.SetTrigger("attack");
-        cooldownTimer = 0;
-    }
     private void Attack()
     {
         
-        
-
+        playerMovement.changeSpeed(1f);
         ChiBalls[FindChiBall()].transform.position = ChiPoint.position;
         ChiBalls[FindChiBall()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
 

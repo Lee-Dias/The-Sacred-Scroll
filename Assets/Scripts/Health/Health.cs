@@ -45,23 +45,42 @@ public class Health : MonoBehaviour
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
                 //Enemy
-                
-                foreach(Behaviour component in components){
-                    
-                    gameObject.SetActive(false);
-                    component.enabled = false;
-                    
+                StartCoroutine(dieflashes());;
 
-                }
                   
-                dead = true;
+                
             }
             
         }
         
     }
+    private IEnumerator dieflashes(){
+        anim.SetTrigger("die");
+        foreach(Behaviour component in components){
+            component.enabled = false;
+        }
+        for (int i = 0; i < 3; i++) {
+            spriteRend.color = new Color(1,1,1, 0.5f);
+            yield return new WaitForSeconds(0.1f);
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        } 
+        die();
+    }
+    public void die(){
+        foreach(Behaviour component in components){
+            gameObject.SetActive(false);
+            component.enabled = false;
+        }
+        dead = true;
+    }
     public void AddHealth(float _value){
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth); 
+    }
+    private void Update(){
+        if(Input.GetKeyDown(KeyCode.P)){
+            TakeDamage(6);
+        }
     }
 
     private IEnumerator Invunerability(){
@@ -76,15 +95,4 @@ public class Health : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7,8,false);
     }
 
-    private IEnumerator Die(){
-        
-        Physics2D.IgnoreLayerCollision(7,8,true);
-        for (int i = 0; i < 2; i++) {
-            spriteRend.color = new Color(1,0,0, 0.5f);
-            yield return new WaitForSeconds(iFramesDuration/(numberOfFlashes*2));
-            spriteRend.color = Color.white;
-            yield return new WaitForSeconds(iFramesDuration/(numberOfFlashes*2));
-        } 
-        Physics2D.IgnoreLayerCollision(7,8,false);
-    }
 }

@@ -14,6 +14,7 @@ public class Bow : MonoBehaviour
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 5f;
 
+    public float rot = 180;
     private Transform target;
 
     private void Update(){
@@ -44,10 +45,14 @@ public class Bow : MonoBehaviour
     }
 
     private void RotateTowardTarget(){
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg + 180f;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg + rot;
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f,0f,angle));
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation,
         targetRotation,rotationSpeed * Time.deltaTime);
+    }
+
+    public void Rotate(float ol) {
+        rot = ol;
     }
 }

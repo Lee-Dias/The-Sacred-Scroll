@@ -21,10 +21,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     private int jumpsLeft;
+    private float initspeed;
 
     private void Start(){
         jumpsLeft = maxJumps;
         animator =  GetComponent<Animator>();
+        initspeed = speed;
     }
 
     private void Update()
@@ -39,21 +41,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (IsGrounded()){
             animator.SetBool("isGround",true); 
-            jumpsLeft = maxJumps;    
+            if (rb.velocity.y <= 1e-3)
+                jumpsLeft = maxJumps;    
         }else{
             animator.SetBool("isGround",false); 
         }
 
-        if (Input.GetButtonDown("Jump") && jumpsLeft > 1 )
+        if (Input.GetButtonDown("Jump") && jumpsLeft >= 1 )
         {          
             animator.SetBool("isGround",false); 
             jumpsLeft -= 1;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);   
               
-        }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.8f);
         }
         
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
@@ -74,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("dashing",false);
         }
 
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * initspeed, rb.velocity.y);
         animator.SetFloat("xVelocity", math.abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
@@ -93,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+    public void changeSpeed(float a){
+        initspeed = (speed/a);
+
     }
 
     private IEnumerator Dash()

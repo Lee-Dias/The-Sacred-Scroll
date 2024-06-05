@@ -7,18 +7,16 @@ using UnityEngine.UIElements;
 public class Healthbar : MonoBehaviour
 {
     [SerializeField] private Health playerHealth;
-    [SerializeField] private UnityEngine.UI.Image totalHealthBar;
     [SerializeField] private UnityEngine.UI.Image currentHealthBar;
 
     void Start()
     {
-        totalHealthBar.fillAmount = playerHealth.currentHealth / 10;
         
     }
 
 
     void Update()
     {
-        currentHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        currentHealthBar.fillAmount = playerHealth.currentHealth / 6;
     }
 }

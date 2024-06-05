@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private float moveSpeed;
     [SerializeField]
     private float XScale = 1;
-        [SerializeField]
+    [SerializeField]
     private float YScale = 1;
 
     private bool isChasing;

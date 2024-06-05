@@ -16,6 +16,7 @@ public class PlayerAtaque : MonoBehaviour
     private GameObject attack;
     public bool attacking = false;
     private float cooldownTimer = Mathf.Infinity;
+    private Chi chi;
 
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class PlayerAtaque : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        chi = GetComponent<Chi>();
         attack = transform.GetChild(2).gameObject;
         instance = this;
     }
@@ -30,8 +32,11 @@ public class PlayerAtaque : MonoBehaviour
     {
         cooldownTimer += Time.deltaTime;
         attack.SetActive(attacking);
-        if (Input.GetKeyDown(KeyCode.E) && cooldownTimer > attackCooldown && playerMovement.CanAttack() && CanRecieveInput){
+        if (Input.GetKeyDown(KeyCode.J) && cooldownTimer > attackCooldown && playerMovement.CanAttack() && CanRecieveInput){
             InputRecieved = true;
+        }
+        if(ComboNumber == 4){
+            chi.GainChi(1);
         }
         if(ComboNumber > 3){
             ComboNumber=0;
