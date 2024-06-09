@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     
-    [SerializeField]
-    private Transform playerTransform;
+    
     [SerializeField]
     private float chaseDistance;
     [SerializeField]
@@ -16,11 +15,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float YScale = 1;
 
+    private Transform playerTransform;
+    private PlayerMovement player;
     private bool isChasing;
     private Animator anim;
 
     private void Awake(){
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        player = playerObject.GetComponent<PlayerMovement>();
         anim = GetComponent<Animator>();
+        playerTransform = player.trans;
+        
     }
     
     void Update(){

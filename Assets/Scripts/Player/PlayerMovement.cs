@@ -20,13 +20,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    public Transform trans;
+
     private int jumpsLeft;
     private float initspeed;
 
     private void Start(){
+        Time.timeScale = 1f;
         jumpsLeft = maxJumps;
         animator =  GetComponent<Animator>();
         initspeed = speed;
+        trans = this.transform;
     }
 
     private void Update()

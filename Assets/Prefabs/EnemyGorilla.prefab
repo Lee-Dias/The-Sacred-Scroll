@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1272247317, guid: 8ae39b3b9b4730042b3b6c77a5432bd4, type: 3}
+  m_Sprite: {fileID: -1967738462, guid: 29b3c0a05dc15f54da6b901f10108559, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55e41b909edaa34a94ebd03ffeb1442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 2
+  attackCooldown: 1.5
   range: 1
   colliderDistance: -10
   damage: 1
@@ -231,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0862c9bfeb41ec0458a4fa7d155dd62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   chaseDistance: 75
   moveSpeed: 10
   XScale: 1.3

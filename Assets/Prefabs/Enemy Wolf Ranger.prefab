@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5418354732263170219}
   - component: {fileID: 7001422743180393120}
   - component: {fileID: 903237789991000062}
+  - component: {fileID: 5871137365893111052}
   m_Layer: 7
   m_Name: wolf_ranger__bow_0
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1809035960, guid: 444e18a7bda82db449556196f6824a01, type: 3}
+  m_Sprite: {fileID: 387003671, guid: 36bf829d35508e549bb0fd6bc3871e48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,8 +121,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6895800876924523732, guid: f372ba9b3ed4b764abd2e6fd7e70930c, type: 3}
   bulletPos: {fileID: 7671300283110778081}
-  ShootTime: 3
+  ShootTime: 1.5
   distanceToShoot: 150
+--- !u!95 &5871137365893111052
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165432841206681256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c8c1ce9bd592774c9a4bfbf515bb9cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3846934493130259516
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71d452527abb504d8e786361d8241ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 2
+  startingHealth: 3
   iFramesDuration: 0
   numberOfFlashes: 0
   components:

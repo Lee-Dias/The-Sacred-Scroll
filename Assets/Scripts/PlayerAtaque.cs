@@ -17,11 +17,14 @@ public class PlayerAtaque : MonoBehaviour
     public bool attacking = false;
     private float cooldownTimer = Mathf.Infinity;
     private Chi chi;
+    private Pontuacao points;
 
 
     // Update is called once per frame
     private void Awake()
     {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        points = playerObject.GetComponent<Pontuacao>();
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         chi = GetComponent<Chi>();
@@ -34,13 +37,6 @@ public class PlayerAtaque : MonoBehaviour
         attack.SetActive(attacking);
         if (Input.GetKeyDown(KeyCode.J) && cooldownTimer > attackCooldown && playerMovement.CanAttack() && CanRecieveInput){
             InputRecieved = true;
-        }
-        if(ComboNumber == 4){
-            chi.GainChi(1);
-        }
-        if(ComboNumber > 3){
-            ComboNumber=0;
-            cooldownTimer = 0;
         }
     }
 

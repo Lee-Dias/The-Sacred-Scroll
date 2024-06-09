@@ -15,15 +15,20 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
+    private PlayerMovement playerMovement;
+    private Pontuacao points;
 
     [Header ("Components")]
     [SerializeField] private Behaviour[] components;
 
     void Start()
     {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        points = playerObject.GetComponent<Pontuacao>();
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -33,22 +38,23 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0){
+            if(GetComponent<PlayerMovement>() !=null){
+                playerMovement.changeSpeed(1f);
+            }
+            
             anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
         }
         else
         {
             if (!dead){
-                
+                points.GainPoints(50);
                 //Player
                 if(GetComponent<PlayerMovement>() !=null){
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
                 //Enemy
                 StartCoroutine(dieflashes());;
-
-                  
-                
             }
             
         }

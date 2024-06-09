@@ -16,9 +16,11 @@ public class BowShoot : MonoBehaviour
     private float timer = 0;    
 
     private GameObject player;
+    private Animator anim;
 
     void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
@@ -29,7 +31,7 @@ public class BowShoot : MonoBehaviour
         if (Distance < distanceToShoot){
             timer += Time.deltaTime;
             if (timer > ShootTime){
-                Shoot();
+                anim.SetTrigger("shoot");
                 timer = 0;
             }
         }else{

@@ -21,17 +21,25 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -132489362, guid: 0d16960f701f634438019ae0f0ee6f32, type: 3}
+      value: {fileID: 1214046454, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
     - time: 0.25
-      value: {fileID: -424035431, guid: 0d16960f701f634438019ae0f0ee6f32, type: 3}
+      value: {fileID: 82653960, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - time: 0.375
+      value: {fileID: -944422642, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
     - time: 0.5
-      value: {fileID: 337602465, guid: 0d16960f701f634438019ae0f0ee6f32, type: 3}
+      value: {fileID: 1348349610, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - time: 0.625
+      value: {fileID: -1343569288, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - time: 0.875
+      value: {fileID: 249618409, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - time: 1.125
+      value: {fileID: -1058797669, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 4
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -48,15 +56,19 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -132489362, guid: 0d16960f701f634438019ae0f0ee6f32, type: 3}
-    - {fileID: -424035431, guid: 0d16960f701f634438019ae0f0ee6f32, type: 3}
-    - {fileID: 337602465, guid: 0d16960f701f634438019ae0f0ee6f32, type: 3}
+    - {fileID: 1214046454, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - {fileID: 82653960, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - {fileID: -944422642, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - {fileID: 1348349610, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - {fileID: -1343569288, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - {fileID: 249618409, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
+    - {fileID: -1058797669, guid: 553aa1806f2ed0444bc3b8800e937240, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 1.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -76,7 +88,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5
+  - time: 0.875
     functionName: DamagePlayer
     data: 
     objectReferenceParameter: {fileID: 0}
