@@ -6,36 +6,41 @@ public class actiavte : MonoBehaviour
 {
     [SerializeField] private GameObject[] childs;
     [SerializeField] private float timeInArena;
+    private float time; 
     private bool active = false;
-    private SpriteRenderer spriteRend;
     private Key player;
 
-    private void Awake(){
+    private void Start(){
         GameObject playerObject = GameObject.FindWithTag("Player");
         player = playerObject.GetComponent<Key>();
+        time = 0;
     }
 
-
+    void Update(){
+        if(active == false){
+            time = 0;
+        }else{
+            time += Time.deltaTime;
+        }
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision){
         player.aumentarcahves();
-        spriteRend = GetComponent<SpriteRenderer>();
         if(collision.tag == "Player"){
-            spriteRend.color = new Color(1,1,1, 0f);
+            active = true;
             for(int i = 0; i < childs.Length; i++){
                 childs[i].SetActive(true);
             }
-            active = true;
+            
         }
-        if(active == true){
-            timeInArena = Time.time;
-        }
-        if (timeInArena >= 15){
+        if (time >= timeInArena){
+            
             for(int i = 0; i < childs.Length; i++){
                 childs[i].SetActive(false);
             }
             gameObject.SetActive(false);
+            active = false;
         }
     }
 }

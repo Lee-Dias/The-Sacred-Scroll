@@ -18,6 +18,8 @@ public class TransistionOneBehaviour : StateMachineBehaviour
             PlayerAtaque.instance.ComboNumber = 2;
             PlayerAtaque.instance.InputManager();
             PlayerAtaque.instance.InputRecieved = false;
+       }else{
+            PlayerAtaque.instance.ComboNumber = 0;
        }
     }
 

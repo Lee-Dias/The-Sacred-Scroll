@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
 
         if (Mathf.Abs(yDifference) >= treshold.y)
         {
-            newPosition.y = follow.y+20;
+            newPosition.y = follow.y+10;
         }
 
         // Suavizar a transição usando Lerp

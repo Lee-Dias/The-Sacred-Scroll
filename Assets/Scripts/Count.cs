@@ -12,6 +12,6 @@ public class Count : MonoBehaviour
     private Pontuacao pon;
     void Update()
     {
-        this.pontuacao.text =  $"Points: {pon.currentPoints.ToString()}";
+        this.pontuacao.text =  $"{pon.currentPoints.ToString()}";
     }
 }

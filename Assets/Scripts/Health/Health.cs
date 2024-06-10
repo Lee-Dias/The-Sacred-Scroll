@@ -84,9 +84,6 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth); 
     }
     private void Update(){
-        if(Input.GetKeyDown(KeyCode.P)){
-            TakeDamage(6);
-        }
     }
 
     private IEnumerator Invunerability(){

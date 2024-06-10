@@ -16,6 +16,10 @@ public class MeeleEnemy : MonoBehaviour
     private Animator anim;
 
     private Health playerHealth;
+    [SerializeField]
+    private AudioSource src;
+    [SerializeField]
+    private AudioClip ataque,hit;
 
     private void Awake(){
         anim = GetComponent<Animator>();
@@ -30,6 +34,7 @@ public class MeeleEnemy : MonoBehaviour
             {
                 cooldownTimer = 0;
                 anim.SetTrigger("meeleAttack");
+                
             }
         }
     }
@@ -55,7 +60,9 @@ public class MeeleEnemy : MonoBehaviour
     }
 
     private void DamagePlayer(){
+        src.PlayOneShot(ataque);
         if(PlayerInSight()){
+            src.PlayOneShot(hit);
             playerHealth.TakeDamage(damage);
         }
 

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class AnimateHit : MonoBehaviour
 {
-    [SerializeField]
-    private Transform playerTransform;
+
     [SerializeField] 
     private GameObject bow; 
     [SerializeField] 
     private Bow bowrot; 
-    // Start is called before the first frame update
+    private Transform player;
     public void Acticate()
     {
         bow.SetActive(true);
@@ -22,13 +21,18 @@ public class AnimateHit : MonoBehaviour
         bow.SetActive(false);
     }
 
+    void Start(){
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        player = playerObject.GetComponent<Transform>();
+    }
+
     void Update()
     {
-        if(transform.position.x > (playerTransform.position.x+20)){
+        if(transform.position.x > (player.position.x+20)){
             transform.localScale = new Vector3(1,1,1);
             bowrot.Rotate(180f);
         }
-        else if(transform.position.x < (playerTransform.position.x-20)){
+        else if(transform.position.x < (player.position.x-20)){
             transform.localScale = new Vector3(-1,1,1);
             bowrot.Rotate(0f);
         }

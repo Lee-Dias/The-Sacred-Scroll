@@ -17,6 +17,10 @@ public class BowShoot : MonoBehaviour
 
     private GameObject player;
     private Animator anim;
+    [SerializeField]
+    private AudioSource src;
+    [SerializeField]
+    private AudioClip shoot;
 
     void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +35,7 @@ public class BowShoot : MonoBehaviour
         if (Distance < distanceToShoot){
             timer += Time.deltaTime;
             if (timer > ShootTime){
+                src.PlayOneShot(shoot);
                 anim.SetTrigger("shoot");
                 timer = 0;
             }
@@ -39,6 +44,7 @@ public class BowShoot : MonoBehaviour
         }
     }
     private void Shoot(){
+        
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
     }
 }

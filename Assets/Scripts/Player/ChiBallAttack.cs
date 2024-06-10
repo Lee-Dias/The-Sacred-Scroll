@@ -15,6 +15,11 @@ public class ChiBallAttack : MonoBehaviour
     private Chi chi;
     private float cooldownTimer = Mathf.Infinity;
 
+    [SerializeField]
+    private AudioSource src;
+    [SerializeField]
+    private AudioClip bola;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -27,6 +32,7 @@ public class ChiBallAttack : MonoBehaviour
             playerMovement.changeSpeed(4f);
             chi.LoseChi(2);
             anim.SetTrigger("attack");
+            src.PlayOneShot(bola);
             cooldownTimer = 0;
         }
 

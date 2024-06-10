@@ -19,11 +19,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-
     public Transform trans;
 
     private int jumpsLeft;
     private float initspeed;
+
+    [SerializeField]
+    private AudioSource src;
+    [SerializeField]
+    private AudioClip jumpSound;
+    [SerializeField]
+    private AudioClip dashSound;
 
     private void Start(){
         Time.timeScale = 1f;
@@ -52,15 +58,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Jump") && jumpsLeft >= 1 )
-        {          
+        {    
+            src.PlayOneShot(jumpSound);      
             animator.SetBool("isGround",false); 
             jumpsLeft -= 1;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);   
-              
         }
         
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
+            src.PlayOneShot(dashSound);
             StartCoroutine(Dash());
         }
 
