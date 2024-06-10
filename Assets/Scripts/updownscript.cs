@@ -20,9 +20,12 @@ public class updownscript : MonoBehaviour
     {
         if((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)) && transform.position == ButtonPosition1.position){
             men.PlayGame();
+
+            
         }
         if((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)) && transform.position == ButtonPosition2.position){
             men.QuitGame();
+            
         }
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
             Change1();

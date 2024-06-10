@@ -9,6 +9,7 @@ public class Win : MonoBehaviour
     [SerializeField]
     private AudioClip win;
     // Start is called before the first frame update
+
     public void goToMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -16,6 +17,9 @@ public class Win : MonoBehaviour
     void Update(){
         src.PlayOneShot(win);
         Time.timeScale = 0f;
+        if((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))){
+            goToMenu();
+        }
     }
 
 }

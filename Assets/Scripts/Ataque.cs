@@ -18,7 +18,7 @@ public class Ataque : MonoBehaviour
             collision.GetComponent<Health>().TakeDamage(0.5f);     
             src.PlayOneShot(hit);      
             if (pAtaque.ComboNumber == 4){
-                chi.GainChi(1f);
+                chi.GainChi(0.5f);
                 points.GainPoints(25);
             }
             pAtaque.attacking = false;

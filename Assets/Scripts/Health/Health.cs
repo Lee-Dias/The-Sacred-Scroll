@@ -51,10 +51,12 @@ public class Health : MonoBehaviour
                 points.GainPoints(50);
                 //Player
                 if(GetComponent<PlayerMovement>() !=null){
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    StartCoroutine(DiePause());
+                }else{
+                    StartCoroutine(dieflashes());
                 }
                 //Enemy
-                StartCoroutine(dieflashes());;
+                
             }
             
         }
@@ -72,6 +74,21 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         } 
         die();
+    }
+
+    private IEnumerator DiePause(){
+        anim.SetTrigger("die");
+        foreach(Behaviour component in components){
+            component.enabled = false;
+        }
+        for (int i = 0; i < 3; i++) {
+            spriteRend.color = new Color(1,1,1, 0.5f);
+            yield return new WaitForSeconds(0.1f);
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        } 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
     public void die(){
         foreach(Behaviour component in components){

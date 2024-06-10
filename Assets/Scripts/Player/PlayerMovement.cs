@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.velocity = new Vector2(horizontal * initspeed, rb.velocity.y);
-        animator.SetFloat("xVelocity", math.abs(rb.velocity.x));
+        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
 

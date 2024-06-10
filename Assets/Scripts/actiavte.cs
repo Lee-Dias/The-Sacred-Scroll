@@ -9,11 +9,13 @@ public class actiavte : MonoBehaviour
     private float time; 
     private bool active = false;
     private Key player;
+    private SpriteRenderer spriteRend;
 
     private void Start(){
         GameObject playerObject = GameObject.FindWithTag("Player");
         player = playerObject.GetComponent<Key>();
         time = 0;
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     void Update(){
@@ -28,6 +30,7 @@ public class actiavte : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         player.aumentarcahves();
         if(collision.tag == "Player"){
+            spriteRend.color = new Color(1,1,1, 0f);
             active = true;
             for(int i = 0; i < childs.Length; i++){
                 childs[i].SetActive(true);

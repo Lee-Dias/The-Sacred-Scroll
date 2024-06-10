@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAtaque : MonoBehaviour
@@ -37,21 +36,13 @@ public class PlayerAtaque : MonoBehaviour
     }
     void Update()
     {
-        if(ComboNumber == 0) {
-            playerMovement.changeSpeed(1f);
-        }else{
-            playerMovement.changeSpeed(10f);
-        }
         cooldownTimer += Time.deltaTime;
         attack.SetActive(attacking);
         if (Input.GetKeyDown(KeyCode.J) && cooldownTimer > attackCooldown && playerMovement.CanAttack() && CanRecieveInput){
             ComboNumber = 1;
-            playerMovement.changeSpeed(10f);
+            playerMovement.changeSpeed(1f);
             InputRecieved = true;
             src.PlayOneShot(hit);
-        }
-        if (ComboNumber == 4){
-            ComboNumber = 0;
         }
     }
 
